@@ -102,7 +102,7 @@
     }
 
     .preamble {
-      margin-bottom: 48px;
+      margin-bottom: 36px;
     }
 
     .badge-label {
@@ -142,26 +142,46 @@
       font-weight: 500;
     }
 
+    /* Scroll-reactive Declaration Box */
     .declaration-box {
       border-left: 2px solid var(--accent);
       background-color: var(--callout-bg);
-      padding: 24px 28px;
+      padding: 26px 30px;
       margin: 36px 0 48px;
+      position: relative;
+      will-change: transform, opacity, filter;
+      transform-origin: center top;
+      transition: box-shadow 0.3s ease;
     }
 
     .declaration-title {
       font-family: var(--font-serif);
-      font-size: 1.15rem;
+      font-size: 1.2rem;
       font-weight: 600;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       color: var(--text);
       letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .declaration-pill {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      padding: 2px 7px;
+      border-radius: 2px;
     }
 
     .declaration-box p {
-      font-size: 0.95rem;
+      font-size: 0.98rem;
       color: var(--text);
-      line-height: 1.7;
+      line-height: 1.75;
       margin-bottom: 0;
     }
 
@@ -332,8 +352,11 @@
           <span><strong>Developer:</strong> HxBreak</span>
         </div>
 
-        <div class="declaration-box">
-          <div class="declaration-title">Solemn Commitment to Absolute Local Execution</div>
+        <div class="declaration-box" id="solemn-commitment">
+          <div class="declaration-title">
+            <span>Solemn Commitment to Absolute Local Execution</span>
+            <span class="declaration-pill">Non-Negotiable</span>
+          </div>
           <p>
             DevCheck is architected upon a strict, uncompromising premise: <strong>all data remains exclusively on your physical device</strong>. 
             The application does not collect, record, transmit, share, or sell any personal information or device telemetry. 
@@ -499,5 +522,57 @@
     </article>
   </main>
 
+  <script>
+    // Elegant Scroll-Driven Parallax Exit for the Solemn Commitment Box
+    (function initScrollExit() {
+      const box = document.getElementById('solemn-commitment');
+      if (!box) return;
+
+      let ticking = false;
+
+      function updateBox() {
+        const rect = box.getBoundingClientRect();
+        // The sticky header height is roughly 60px
+        const headerThreshold = 70;
+
+        // When user scrolls down and the box top approaches/passes the header
+        if (rect.top < headerThreshold) {
+          const distancePast = headerThreshold - rect.top;
+          // Smooth progression over 240px of scrolling
+          const progress = Math.min(1, Math.max(0, distancePast / 240));
+
+          // Easing: quadratic ease-in
+          const eased = progress * progress;
+          
+          const opacity = Math.max(0, 1 - eased * 1.15);
+          const translateY = -progress * 42; // accelerates upward out of view
+          const scale = 1 - progress * 0.04;
+          const blur = progress * 3.5;
+
+          box.style.opacity = opacity.toFixed(3);
+          box.style.transform = `translate3d(0, ${translateY.toFixed(1)}px, 0) scale(${scale.toFixed(3)})`;
+          box.style.filter = `blur(${blur.toFixed(1)}px)`;
+          box.style.pointerEvents = opacity < 0.1 ? 'none' : 'auto';
+        } else {
+          box.style.opacity = '1';
+          box.style.transform = 'translate3d(0, 0, 0) scale(1)';
+          box.style.filter = 'none';
+          box.style.pointerEvents = 'auto';
+        }
+
+        ticking = false;
+      }
+
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(updateBox);
+          ticking = true;
+        }
+      }, { passive: true });
+
+      // Initial pass in case of page reload with saved scroll position
+      updateBox();
+    })();
+  </script>
 </body>
 </html>
