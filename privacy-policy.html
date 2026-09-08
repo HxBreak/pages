@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy - DevCheck</title>
+  <style>
+    :root {
+      --primary: #1a73e8;
+      --primary-container: #e8f0fe;
+      --on-primary-container: #174ea6;
+      --surface: #ffffff;
+      --background: #f8f9fa;
+      --on-background: #202124;
+      --on-surface-variant: #5f6368;
+      --outline: #dadce0;
+      --badge-green-bg: #e6f4ea;
+      --badge-green-text: #137333;
+      --card-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --primary: #8ab4f8;
+        --primary-container: #174ea6;
+        --on-primary-container: #d2e3fc;
+        --surface: #202124;
+        --background: #121212;
+        --on-background: #e8eaed;
+        --on-surface-variant: #9aa0a6;
+        --outline: #3c4043;
+        --badge-green-bg: #1e3a29;
+        --badge-green-text: #81c995;
+        --card-shadow: 0 2px 6px rgba(0,0,0,0.4);
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--background);
+      color: var(--on-background);
+      line-height: 1.6;
+      padding-bottom: 60px;
+    }
+    header {
+      background-color: var(--surface);
+      border-bottom: 1px solid var(--outline);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--on-background);
+      text-decoration: none;
+    }
+    .brand-icon {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, #1a73e8, #4285f4);
+      color: white;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+    .lang-switcher {
+      display: flex;
+      background: var(--background);
+      border: 1px solid var(--outline);
+      border-radius: 20px;
+      padding: 2px;
+    }
+    .lang-btn {
+      border: none;
+      background: transparent;
+      padding: 6px 14px;
+      font-size: 0.875rem;
+      cursor: pointer;
+      border-radius: 16px;
+      color: var(--on-surface-variant);
+      transition: all 0.2s ease;
+    }
+    .lang-btn.active {
+      background: var(--primary);
+      color: white;
+      font-weight: 500;
+    }
+    main {
+      max-width: 860px;
+      margin: 32px auto;
+      padding: 0 24px;
+    }
+    .doc-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+    .effective-date {
+      color: var(--on-surface-variant);
+      font-size: 0.95rem;
+      margin-bottom: 28px;
+    }
+    .highlight-card {
+      background: var(--primary-container);
+      color: var(--on-primary-container);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 32px;
+    }
+    .highlight-card h2 {
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .badge-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .badge-item {
+      background: var(--surface);
+      border-radius: 12px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: var(--card-shadow);
+    }
+    .badge-icon {
+      font-size: 1.25rem;
+    }
+    .badge-text {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--on-background);
+    }
+    section {
+      background: var(--surface);
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 24px;
+      border: 1px solid var(--outline);
+      box-shadow: var(--card-shadow);
+    }
+    h2 {
+      font-size: 1.4rem;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--outline);
+      color: var(--primary);
+    }
+    h3 {
+      font-size: 1.1rem;
+      margin: 18px 0 10px 0;
+    }
+    p {
+      margin-bottom: 14px;
+    }
+    ul, ol {
+      margin-left: 24px;
+      margin-bottom: 16px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 18px 0;
+      font-size: 0.92rem;
+    }
+    th, td {
+      padding: 12px 14px;
+      text-align: left;
+      border-bottom: 1px solid var(--outline);
+    }
+    th {
+      background: var(--background);
+      font-weight: 600;
+    }
+    .tag-safe {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      background: var(--badge-green-bg);
+      color: var(--badge-green-text);
+      font-weight: 500;
+    }
+    .tag-consent {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      background: #fef7e0;
+      color: #b06000;
+      font-weight: 500;
+    }
+    @media (prefers-color-scheme: dark) {
+      .tag-consent {
+        background: #3e2723;
+        color: #fbc02d;
+      }
+    }
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      color: var(--on-surface-variant);
+      font-size: 0.875rem;
+    }
+    .lang-en { display: block; }
+    .lang-zh { display: none; }
+    body.show-zh .lang-en { display: none; }
+    body.show-zh .lang-zh { display: block; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <a href="#" class="brand">
+        <div class="brand-icon">D</div>
+        <span>DevCheck</span>
+      </a>
+      <div class="lang-switcher">
+        <button class="lang-btn active" id="btn-en" onclick="setLang('en')">English</button>
+        <button class="lang-btn" id="btn-zh" onclick="setLang('zh')">简体中文</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- English Version -->
+    <div class="lang-en">
+      <h1 class="doc-title">Privacy Policy</h1>
+      <div class="effective-date">Effective Date: August 11, 2026 | Last Updated: September 8, 2026</div>
+
+      <div class="highlight-card">
+        <h2>🛡️ Summary: Absolute Privacy & Zero Data Collection</h2>
+        <p><strong>DevCheck does not collect, transmit, or share any personal or device data.</strong></p>
+        <p>All hardware, system, and network diagnostic information is accessed and processed strictly on your local device. No data is ever transmitted to our servers, third parties, or outside your device.</p>
+        <div class="badge-grid">
+          <div class="badge-item">
+            <span class="badge-icon">🔒</span>
+            <span class="badge-text">100% On-Device Processing</span>
+          </div>
+          <div class="badge-item">
+            <span class="badge-icon">🚫</span>
+            <span class="badge-text">Zero Data Collection / Sharing</span>
+          </div>
+          <div class="badge-item">
+            <span class="badge-icon">📡</span>
+            <span class="badge-text">No Internet Access Permission</span>
+          </div>
+          <div class="badge-item">
+            <span class="badge-icon">⚙️</span>
+            <span class="badge-text">Revocable In-App Consent</span>
+          </div>
+        </div>
+      </div>
+
+      <section>
+        <h2>1. Information We Access On-Device</h2>
+        <p>To display device specifications and diagnostics, DevCheck accesses the following categories of information locally:</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>Examples</th>
+              <th>Type / Handling</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Device</strong></td>
+              <td>Manufacturer, model, board, hardware specs</td>
+              <td><span class="tag-safe">Non-sensitive / Local only</span></td>
+            </tr>
+            <tr>
+              <td><strong>Android OS</strong></td>
+              <td>OS version, API level, build number, security patch</td>
+              <td><span class="tag-safe">Non-sensitive / Local only</span></td>
+            </tr>
+            <tr>
+              <td><strong>CPU & SoC</strong></td>
+              <td>SoC model, architecture (ABIs), core count, frequencies</td>
+              <td><span class="tag-safe">Non-sensitive / Local only</span></td>
+            </tr>
+            <tr>
+              <td><strong>Memory (RAM)</strong></td>
+              <td>Total RAM, available memory, swap usage</td>
+              <td><span class="tag-safe">Non-sensitive / Local only</span></td>
+            </tr>
+            <tr>
+              <td><strong>Storage</strong></td>
+              <td>Internal storage capacity and free space</td>
+              <td><span class="tag-safe">Non-sensitive / Local only</span></td>
+            </tr>
+            <tr>
+              <td><strong>Battery</strong></td>
+              <td>Health, battery level, temperature, voltage, technology</td>
+              <td><span class="tag-safe">Non-sensitive / Local only</span></td>
+            </tr>
+            <tr>
+              <td><strong>Display</strong></td>
+              <td>Screen resolution, physical density, refresh rate</td>
+              <td><span class="tag-safe">Non-sensitive / Local only</span></td>
+            </tr>
+            <tr>
+              <td><strong>Network</strong></td>
+              <td>Network type (Wi-Fi / Cellular), local IP address</td>
+              <td><span class="tag-safe">Local diagnostic only</span></td>
+            </tr>
+            <tr>
+              <td><strong>Wi-Fi Details</strong></td>
+              <td>Connected SSID, BSSID, link speed, frequency</td>
+              <td><span class="tag-consent">Requires Explicit Permission</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>2. Data Collection, Transmission, and Sharing</h2>
+        <ul>
+          <li><strong>No Collection:</strong> Under Google Play developer policies, "collection" means transmitting data off the device. Because DevCheck processes all data locally and sends nothing off the device, no data is collected.</li>
+          <li><strong>No Third-Party SDKs:</strong> DevCheck includes no analytics SDKs (e.g. Firebase, Google Analytics), no advertising networks, and no telemetry services.</li>
+          <li><strong>No Internet Permission:</strong> The app does not declare or request the <code>android.permission.INTERNET</code> permission in its manifest, guaranteeing that network transmissions cannot occur.</li>
+          <li><strong>No Data Sharing:</strong> We do not sell, rent, or share any data with any third party.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>3. Permissions and User Consent</h2>
+        <p>DevCheck is designed with minimum privilege:</p>
+        <ul>
+          <li><strong>Install-time permissions:</strong> Only <code>ACCESS_NETWORK_STATE</code> is declared, which allows checking the current network connection type locally.</li>
+          <li><strong>Runtime permissions (Location):</strong> On Android, obtaining detailed Wi-Fi identifiers (SSID/BSSID) requires Location permission (<code>ACCESS_FINE_LOCATION</code>). DevCheck only requests this permission if you navigate to the Wi-Fi details screen and tap to view Wi-Fi parameters.</li>
+          <li><strong>Revoking Access:</strong> You can grant or revoke this access at any time via <strong>Settings → Data Access</strong> within the app, or through Android System Settings. Once revoked, the information is immediately cleared from the display.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>4. Data Retention & Deletion</h2>
+        <ul>
+          <li>We operate no backend servers or databases; therefore, no user data exists remotely to be retained or deleted.</li>
+          <li>The only data persisted locally on your device is your consent state (which categories you permitted).</li>
+          <li>Uninstalling DevCheck permanently erases all locally saved preferences.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>5. Google Play Data Safety Compliance</h2>
+        <p>In the Google Play Console "Data Safety" form, DevCheck declares:</p>
+        <ul>
+          <li><strong>Does your app collect or share any user data?</strong> → <strong>No</strong></li>
+          <li><strong>Data encryption in transit:</strong> N/A (no data transmitted)</li>
+          <li><strong>Data deletion requests:</strong> N/A (no user data stored remotely)</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>6. Children's Privacy</h2>
+        <p>DevCheck is not directed towards children under the age of 13 (or under 16 in certain jurisdictions), and does not collect personal information from anyone.</p>
+      </section>
+
+      <section>
+        <h2>7. Contact Information</h2>
+        <p>If you have any questions or inquiries regarding this Privacy Policy, please contact the developer at:</p>
+        <p><strong>GitHub:</strong> <a href="https://github.com/HxBreak" target="_blank" style="color:var(--primary);">github.com/HxBreak</a></p>
+      </section>
+    </div>
+
+    <!-- Chinese Version -->
+    <div class="lang-zh">
+      <h1 class="doc-title">隐私权政策</h1>
+      <div class="effective-date">生效日期：2026年8月11日 | 最近更新：2026年9月8日</div>
+
+      <div class="highlight-card">
+        <h2>🛡️ 核心摘要：完全本地处理，零数据收集</h2>
+        <p><strong>DevCheck（设备检测）不会收集、传输或共享任何用户的个人或设备数据。</strong></p>
+        <p>应用内显示的所有硬件规格、系统运行状态和网络诊断信息均完全在您的本地设备上读取与处理。任何数据都不会发送至我们的服务器、任何第三方或离开您的设备。</p>
+        <div class="badge-grid">
+          <div class="badge-item">
+            <span class="badge-icon">🔒</span>
+            <span class="badge-text">100% 设备本地处理</span>
+          </div>
+          <div class="badge-item">
+            <span class="badge-icon">🚫</span>
+            <span class="badge-text">零数据收集与共享</span>
+          </div>
+          <div class="badge-item">
+            <span class="badge-icon">📡</span>
+            <span class="badge-text">无联网权限声明</span>
+          </div>
+          <div class="badge-item">
+            <span class="badge-icon">⚙️</span>
+            <span class="badge-text">随时可撤回的应用内授权</span>
+          </div>
+        </div>
+      </div>
+
+      <section>
+        <h2>1. 我们在本地读取的信息</h2>
+        <p>为了向您展示设备硬件规格与系统性能，DevCheck 仅在您的设备本地读取以下类别的信息：</p>
+        <table>
+          <thead>
+            <tr>
+              <th>数据类别</th>
+              <th>具体示例</th>
+              <th>处理方式与敏感级别</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>设备信息</strong></td>
+              <td>制造商、设备型号、主板、硬件代号</td>
+              <td><span class="tag-safe">非敏感 / 仅本地展示</span></td>
+            </tr>
+            <tr>
+              <td><strong>Android 系统</strong></td>
+              <td>系统版本、API 级别、构建版本号、安全补丁日期</td>
+              <td><span class="tag-safe">非敏感 / 仅本地展示</span></td>
+            </tr>
+            <tr>
+              <td><strong>处理器 (CPU)</strong></td>
+              <td>SoC 芯片型号、支持架构 (ABIs)、核心数、运行频率</td>
+              <td><span class="tag-safe">非敏感 / 仅本地展示</span></td>
+            </tr>
+            <tr>
+              <td><strong>内存 (RAM)</strong></td>
+              <td>总内存大小、可用内存、Swap 交换分区状态</td>
+              <td><span class="tag-safe">非敏感 / 仅本地展示</span></td>
+            </tr>
+            <tr>
+              <td><strong>存储容量</strong></td>
+              <td>内部存储总空间、剩余可用空间</td>
+              <td><span class="tag-safe">非敏感 / 仅本地展示</span></td>
+            </tr>
+            <tr>
+              <td><strong>电池信息</strong></td>
+              <td>电池健康度、当前电量、电池温度、电压、电池技术</td>
+              <td><span class="tag-safe">非敏感 / 仅本地展示</span></td>
+            </tr>
+            <tr>
+              <td><strong>屏幕显示</strong></td>
+              <td>分辨率、物理屏幕密度、刷新率</td>
+              <td><span class="tag-safe">非敏感 / 仅本地展示</span></td>
+            </tr>
+            <tr>
+              <td><strong>网络连接</strong></td>
+              <td>网络连接类型（移动网络/Wi-Fi）、本地 IP 地址</td>
+              <td><span class="tag-safe">本地诊断 / 仅本地展示</span></td>
+            </tr>
+            <tr>
+              <td><strong>Wi-Fi 详细参数</strong></td>
+              <td>当前连接的 Wi-Fi 名称 (SSID)、BSSID、协商速率、频率</td>
+              <td><span class="tag-consent">需用户明确授权（敏感）</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>2. 数据收集、传输与分享政策</h2>
+        <ul>
+          <li><strong>无数据收集：</strong>根据 Google Play 开发者政策定义，“数据收集”指将数据传输到用户设备之外。DevCheck 所有数据均在设备本地处理，绝不向外部传输，因此不属于数据收集。</li>
+          <li><strong>无第三方 SDK：</strong>本应用未集成任何第三方统计分析 SDK（如 Firebase、Google Analytics）、广告 SDK、崩溃报告或用户画像组件。</li>
+          <li><strong>无 INTERNET 联网权限：</strong>应用清单未声明 <code>android.permission.INTERNET</code> 权限，从操作系统层面保证无法发起网络传输。</li>
+          <li><strong>无数据共享：</strong>我们绝不会向任何第三方出售、出借或分享任何信息。</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>3. 权限使用与用户知情同意</h2>
+        <p>DevCheck 遵循最小权限原则：</p>
+        <ul>
+          <li><strong>安装时权限：</strong>仅声明了普通的 <code>ACCESS_NETWORK_STATE</code>（仅用于本地识别网络连接类型）。</li>
+          <li><strong>运行时权限（位置信息）：</strong>根据 Android 规范，读取 Wi-Fi 的 SSID / BSSID 需要位置权限（<code>ACCESS_FINE_LOCATION</code>）。应用仅在用户进入 Wi-Fi 详情页面并明确请求查看时，才会通过前置弹窗（Prominent Disclosure）说明原因并申请该权限。</li>
+          <li><strong>随时撤销：</strong>您可以在应用内的<strong>“设置 → 数据访问”</strong>或系统设置中随时撤销此权限。撤销后，应用将立即停止读取并清除界面上的对应信息。</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>4. 数据存储与删除</h2>
+        <ul>
+          <li>我们未架设任何云端服务器或数据库，因此不存在任何远程存储的用户数据。</li>
+          <li>在您的设备本地，应用仅持久化保存您的授权选择（如是否允许读取 Wi-Fi）。</li>
+          <li>卸载应用即可彻底清除应用在您设备上存储的所有本地配置。</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>5. Google Play 数据安全表单一致性声明</h2>
+        <p>在 Google Play 管理中心的“数据安全”部分，DevCheck 声明如下：</p>
+        <ul>
+          <li><strong>应用是否收集或分享任何用户数据？</strong> → <strong>否</strong></li>
+          <li><strong>传输过程中数据是否加密：</strong> 不适用（无网络传输）</li>
+          <li><strong>数据删除机制：</strong> 不适用（未在远程存储任何数据）</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>6. 儿童隐私保护</h2>
+        <p>本应用不面向 13 岁（或您所在司法管辖区规定的对应年龄）以下的儿童，且不会收集任何人的个人数据。</p>
+      </section>
+
+      <section>
+        <h2>7. 联系我们</h2>
+        <p>如果您对本隐私政策有任何疑问或建议，欢迎联系开发者：</p>
+        <p><strong>GitHub:</strong> <a href="https://github.com/HxBreak" target="_blank" style="color:var(--primary);">github.com/HxBreak</a></p>
+      </section>
+    </div>
+
+    <footer>
+      <p>&copy; 2026 DevCheck by HxBreak. All rights reserved.</p>
+    </footer>
+  </main>
+
+  <script>
+    function setLang(lang) {
+      if (lang === 'zh') {
+        document.body.classList.add('show-zh');
+        document.getElementById('btn-zh').classList.add('active');
+        document.getElementById('btn-en').classList.remove('active');
+        document.documentElement.lang = 'zh-CN';
+      } else {
+        document.body.classList.remove('show-zh');
+        document.getElementById('btn-en').classList.add('active');
+        document.getElementById('btn-zh').classList.remove('active');
+        document.documentElement.lang = 'en';
+      }
+    }
+    // Auto-detect browser language if Chinese
+    if (navigator.language && navigator.language.toLowerCase().startsWith('zh')) {
+      setLang('zh');
+    }
+  </script>
+</body>
+</html>
