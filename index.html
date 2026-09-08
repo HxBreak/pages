@@ -15,9 +15,8 @@
       --border: #E8E6DF;
       --border-darker: #D1CECE;
       --accent: #C96442;
-      --callout-bg: #F4F2EC;
       --code-bg: #EFECE6;
-      --font-serif: "Iowan Old Style", "Apple Garamond", Baskerville, "Times New Roman", "Droid Serif", Times, "Source Serif Pro", serif, "Apple Color Emoji", "Segoe UI Emoji";
+      --font-serif: "Iowan Old Style", "Apple Garamond", Baskerville, "Times New Roman", "Droid Serif", Times, "Source Serif Pro", serif;
       --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
     }
@@ -32,7 +31,6 @@
         --border: #2A2926;
         --border-darker: #3E3D38;
         --accent: #D97757;
-        --callout-bg: #1C1B18;
         --code-bg: #242320;
       }
     }
@@ -53,36 +51,24 @@
       background-color: var(--bg);
       color: var(--text);
       font-family: var(--font-sans);
-      line-height: 1.75;
+      line-height: 1.8;
       letter-spacing: -0.01em;
       padding: 0;
       margin: 0;
     }
 
-    /* Top AppBar: Pinned at highest stacking layer */
-    header {
+    /* Top App Bar Header */
+    header.site-header {
       width: 100%;
       border-bottom: 1px solid var(--border);
       background-color: var(--bg);
       position: sticky;
       top: 0;
-      z-index: 1000;
-      transition: box-shadow 0.25s ease, border-color 0.25s ease;
-    }
-
-    header.is-scrolled {
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
-      border-bottom-color: var(--border-darker);
-    }
-
-    @media (prefers-color-scheme: dark) {
-      header.is-scrolled {
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
-      }
+      z-index: 100;
     }
 
     .header-inner {
-      max-width: 720px;
+      max-width: 700px;
       margin: 0 auto;
       padding: 16px 24px;
       display: flex;
@@ -107,21 +93,14 @@
       color: var(--text-tertiary);
     }
 
-    /* Main Article Flow */
+    /* Single Unified Reading Column */
     main {
-      max-width: 720px;
+      max-width: 700px;
       margin: 0 auto;
-      padding: 48px 24px 96px;
-      position: relative;
-      z-index: 1;
+      padding: 56px 24px 100px;
     }
 
-    .preamble {
-      margin-bottom: 36px;
-    }
-
-    .badge-label {
-      display: inline-block;
+    .doc-meta-category {
       font-family: var(--font-mono);
       font-size: 0.72rem;
       font-weight: 600;
@@ -133,11 +112,11 @@
 
     h1 {
       font-family: var(--font-serif);
-      font-size: 2.4rem;
+      font-size: 2.35rem;
       font-weight: 400;
-      line-height: 1.22;
+      line-height: 1.25;
       letter-spacing: -0.025em;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
       color: var(--text);
     }
 
@@ -147,9 +126,9 @@
       gap: 20px;
       font-size: 0.875rem;
       color: var(--text-secondary);
-      padding-bottom: 22px;
+      padding-bottom: 24px;
       border-bottom: 1px solid var(--border);
-      margin-bottom: 32px;
+      margin-bottom: 40px;
     }
 
     .metadata-line span strong {
@@ -157,65 +136,16 @@
       font-weight: 500;
     }
 
-    /* Solemn Commitment Box: Natural document flow that cleanly scrolls under AppBar */
-    .declaration-box {
-      border-left: 3px solid var(--accent);
-      background-color: var(--callout-bg);
-      padding: 24px 28px;
-      margin: 32px 0 44px;
-      position: relative;
-    }
-
-    .declaration-title {
-      font-family: var(--font-serif);
-      font-size: 1.18rem;
-      font-weight: 600;
-      margin-bottom: 12px;
-      color: var(--text);
-      letter-spacing: -0.01em;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .declaration-pill {
-      font-family: var(--font-mono);
-      font-size: 0.68rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--accent);
-      border: 1px solid var(--accent);
-      padding: 2px 7px;
-      border-radius: 2px;
-    }
-
-    .declaration-box p {
-      font-size: 0.98rem;
-      color: var(--text);
-      line-height: 1.75;
-      margin-bottom: 0;
-    }
-
+    /* Section Headings */
     h2 {
       font-family: var(--font-serif);
-      font-size: 1.45rem;
+      font-size: 1.4rem;
       font-weight: 500;
       letter-spacing: -0.015em;
-      margin-top: 48px;
-      margin-bottom: 16px;
+      margin-top: 44px;
+      margin-bottom: 14px;
       color: var(--text);
-      padding-top: 16px;
-    }
-
-    h3 {
-      font-family: var(--font-sans);
-      font-size: 1.05rem;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-      margin-top: 28px;
-      margin-bottom: 10px;
-      color: var(--text);
+      padding-top: 12px;
     }
 
     p {
@@ -249,7 +179,7 @@
       color: var(--text);
     }
 
-    /* Editorial Booktabs Table Style */
+    /* Classical Editorial Booktabs Table */
     .table-wrapper {
       width: 100%;
       overflow-x: auto;
@@ -281,7 +211,7 @@
       border-bottom: 1px solid var(--border);
       vertical-align: top;
       color: var(--text-secondary);
-      line-height: 1.6;
+      line-height: 1.65;
     }
 
     td:first-child, th:first-child {
@@ -315,20 +245,13 @@
       color: var(--accent);
     }
 
-    hr {
-      border: 0;
-      height: 1px;
-      background: var(--border);
-      margin: 48px 0;
-    }
-
     footer {
       border-top: 1px solid var(--border);
       padding-top: 36px;
-      margin-top: 64px;
+      margin-top: 60px;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 10px;
       font-size: 0.82rem;
       color: var(--text-tertiary);
     }
@@ -346,7 +269,7 @@
 </head>
 <body>
 
-  <header id="top-appbar">
+  <header class="site-header">
     <div class="header-inner">
       <a href="#" class="brand-mark">DevCheck</a>
       <span class="header-meta">Legal &amp; Data Safety</span>
@@ -355,35 +278,31 @@
 
   <main>
     <article>
-      <header class="preamble">
-        <span class="badge-label">Policy Statement</span>
-        <h1>Privacy Policy &amp; Data Protection Declaration</h1>
-        <div class="metadata-line">
-          <span><strong>Effective Date:</strong> August 11, 2026</span>
-          <span><strong>Application:</strong> DevCheck</span>
-          <span><strong>Developer:</strong> HxBreak</span>
-        </div>
-
-        <div class="declaration-box" id="solemn-commitment">
-          <div class="declaration-title">
-            <span>Solemn Commitment to Absolute Local Execution</span>
-            <span class="declaration-pill">Non-Negotiable</span>
-          </div>
-          <p>
-            DevCheck is architected upon a strict, uncompromising premise: <strong>all data remains exclusively on your physical device</strong>. 
-            The application does not collect, record, transmit, share, or sell any personal information or device telemetry. 
-            No cloud infrastructure is utilized, and no remote analytical, tracking, or advertising modules exist within the software.
-          </p>
-        </div>
-      </header>
+      <div class="doc-meta-category">Policy Statement</div>
+      <h1>Privacy Policy &amp; Data Protection Declaration</h1>
+      
+      <div class="metadata-line">
+        <span><strong>Effective Date:</strong> August 11, 2026</span>
+        <span><strong>Application:</strong> DevCheck</span>
+        <span><strong>Developer:</strong> HxBreak</span>
+      </div>
 
       <section>
-        <h2>I. Foundational Architecture &amp; Zero-Collection Guarantee</h2>
+        <h2>I. Solemn Commitment to Absolute Local Execution</h2>
         <p>
-          Under the Google Play Developer Policy and standard international data privacy principles, <em>data collection</em> is formally defined as the transmission of information from a user's terminal to an external environment. 
+          <strong>DevCheck is architected upon a strict, uncompromising premise: all data remains exclusively on your physical device.</strong> 
+          The application does not collect, record, transmit, share, or sell any personal information or device telemetry. 
+          No cloud infrastructure is utilized, and no remote analytical, tracking, or advertising modules exist within the software.
         </p>
         <p>
-          DevCheck performs all computational operations, inspections, and formatting purely in volatile local memory. The application possesses no communication channels to convey data externally. Specifically:
+          Under the Google Play Developer Policy and standard international data privacy regulations, <em>data collection</em> is formally defined as the transmission of information from a user's terminal to an external environment. Because all diagnostic computations occur purely in volatile local memory without outbound network capabilities, DevCheck conducts no data collection.
+        </p>
+      </section>
+
+      <section>
+        <h2>II. Foundational Architecture &amp; Zero-Collection Guarantee</h2>
+        <p>
+          The application possesses no communication channels to convey data externally. Specifically:
         </p>
         <ul>
           <li><strong>No Network Permissions:</strong> The application does not declare or request the Android <code>android.permission.INTERNET</code> permission. It is structurally precluded by the operating system from executing outbound network calls.</li>
@@ -393,9 +312,9 @@
       </section>
 
       <section>
-        <h2>II. Information Evaluated On-Device</h2>
+        <h2>III. Scope of Information Evaluated On-Device</h2>
         <p>
-          To fulfill its primary utility as an offline diagnostic instrument, DevCheck accesses hardware parameters and system state variables directly from the local operating system primitives. The table below delineates the categories examined:
+          To fulfill its primary utility as an offline diagnostic instrument, DevCheck accesses hardware parameters and system state variables directly from local operating system APIs. The table below delineates the categories examined:
         </p>
 
         <div class="table-wrapper">
@@ -454,7 +373,7 @@
       </section>
 
       <section>
-        <h2>III. Permissions &amp; Runtime Consent Protocol</h2>
+        <h2>IV. Permissions &amp; Runtime Consent Protocol</h2>
         <p>
           DevCheck adheres strictly to the principle of least privilege:
         </p>
@@ -476,7 +395,7 @@
       </section>
 
       <section>
-        <h2>IV. Google Play Data Safety Compliance Disclosures</h2>
+        <h2>V. Google Play Data Safety Compliance Disclosures</h2>
         <p>
           In accordance with Google Play's Data Safety declaration mandates, DevCheck certifies the following responses within the Play Console:
         </p>
@@ -489,7 +408,7 @@
       </section>
 
       <section>
-        <h2>V. Data Retention &amp; Local Storage</h2>
+        <h2>VI. Data Retention &amp; Local Storage</h2>
         <p>
           DevCheck maintains no remote storage infrastructure or external databases. On the local device, the software persists exclusively:
         </p>
@@ -503,23 +422,23 @@
       </section>
 
       <section>
-        <h2>VI. Children&rsquo;s Privacy</h2>
+        <h2>VII. Children&rsquo;s Privacy</h2>
         <p>
           DevCheck does not target, market to, or knowingly solicit interaction from children under the age of 13 (or the applicable statutory threshold in relevant jurisdictions). As a zero-collection tool, no personal data from minors or any other individuals is ever accepted or preserved.
         </p>
       </section>
 
       <section>
-        <h2>VII. Amendments &amp; Notifications</h2>
+        <h2>VIII. Amendments &amp; Notifications</h2>
         <p>
           Should any structural amendment to this policy occur, the updated document will be published immediately to this canonical location with a revised effective date. Given that the software maintains no external communication channels, material changes regarding permission handling will be communicated via in-app presentation upon upgrade.
         </p>
       </section>
 
       <section>
-        <h2>VIII. Inquiries &amp; Governance</h2>
+        <h2>IX. Inquiries &amp; Governance</h2>
         <p>
-          For inquiries or legal clarification regarding this policy or the technical operations of DevCheck, please direct correspondence to the project repository maintainer:
+          For inquiries or legal clarification regarding this policy or the technical operations of DevCheck, please direct correspondence to the project maintainer:
         </p>
         <p>
           <strong>Developer &amp; Maintainer:</strong> HxBreak<br>
@@ -534,23 +453,5 @@
     </article>
   </main>
 
-  <script>
-    // Subtly elevate the AppBar when content scrolls underneath it
-    (function initAppBarElevation() {
-      const appbar = document.getElementById('top-appbar');
-      if (!appbar) return;
-
-      function onScroll() {
-        if (window.scrollY > 8) {
-          appbar.classList.add('is-scrolled');
-        } else {
-          appbar.classList.remove('is-scrolled');
-        }
-      }
-
-      window.addEventListener('scroll', onScroll, { passive: true });
-      onScroll();
-    })();
-  </script>
 </body>
 </html>
